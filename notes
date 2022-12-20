@@ -1,6 +1,54 @@
               
-1. RxJs:-RxJS (Reactive Extensions for JavaScript) is a library for reactive programming using observables that makes it easier to compose asynchronous or callback-based code.Rxjs provides us single api to deal with the data that are coming from multiple sources over time. The data that is continiously coming to your application is often called as data stream.
+1. RxJs:-RxJS (Reactive Extensions for JavaScript) is a library for reactive programming using observables that makes it easier to compose asynchronous or callback-based code. It provides one core type, the Observable, satellite types (Observer, Schedulers, Subjects) and operators inspired by Array methods (map, filter, reduce, every, etc) to allow handling asynchronous events as collections.
+ReactiveX combines the Observer pattern with the Iterator pattern and functional programming with collections to fill the need for an ideal way of managing sequences of events.
+
+The essential concepts in RxJS which solve async event management are:
+ -Observable: represents the idea of an invokable collection of future values or events.
+ -Observer: is a collection of callbacks that knows how to listen to values delivered by the Observable.
+ -Subscription: represents the execution of an Observable, is primarily useful for cancelling the execution.
+ -Operators: are pure functions that enable a functional programming style of dealing with collections with operations like map, filter, concat, reduce, etc.
+ -Subject: is equivalent to an EventEmitter, and the only way of multicasting a value or event to multiple Observers.
+ -Schedulers: are centralized dispatchers to control concurrency, allowing us to coordinate when computation happens on e.g. setTimeout or requestAnimationFrame or       others.
 
 2. Asynchronous Programming:- Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished. Once that task has finished, your program is presented with the result.
 
 3. Reactive Programming:- Reactive programming is a design approach that uses asynchronous programming logic to handle real-time adjustments to typically static information. It provides an efficient mechanism — the use of automated data streams — for handling content modifications in response to user inquiries.
+
+* Rxjs provides us single api to deal with the data that are coming from multiple sources over time. The data that is continiously coming to your application is often called as data stream.
+
+ Streams of data can be of 
+ - Synchronous
+ - Asynchronous
+ - Getting data from server as HTTP calls
+ - DOM events
+ - Functions with return value
+ 
+ These all data streams are processed differently in javascript with different processes, like
+  - for Ascynchronous data we use callbacks and promises.
+  - for DOM events we use event handlers
+  - for array of data we use loops
+  
+ But in rxjs we we can handle all these data by using single api, we call it as Observables. This is defined from the Observer development Pattern.
+ 
+ * Observer Pattern:- The Observer pattern is a common software development pattern that forms the foundation for rxjs.
+                      In software design and engineering, the observer pattern is a software design pattern in which an object, named the subject, maintains a list of                       its dependents, called observers, and notifies them automatically of any state changes, usually by calling one of their methods.
+                      It is often used for implementing distributed event handling systems, in "event driven" software. In those systems, the subject is usually named                       a "stream of events" or "stream source of events", while the observers are called "sinks of events"
+                       
+                                                ---> Observer 1
+                      Subject ----emits ---     ---> Observer 2
+                                                ---> Observer 3
+                                        
+                      Subject maintains a list of observers.
+                      Subject will emit the data.
+                      When subject emits a data it will send the data to all the ovservers it has so that an observer can execute their own logic.
+                      
+Rxjs supports this observer pattern where a single subject broadcast the value or data  to multiple observer. However in rxjs that is slightly different, we call the subject as observable which pushes the value to observer.
+
+Observables(subject) - has a subscribe() method, Observer is registered using subscribe method.
+Observer - Calls the subscribe method of observable with an object as parameter/callback, .subscribe(next(), error(), complete()).
+
+Whenever an Observable wants to send a data, it calls the next() method that is provided by observer.
+when an error occurs, it calls the error() method.
+Finally , the observable calls the complete() method when it is done sending the values.
+                      
+                      
