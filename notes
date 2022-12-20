@@ -1,0 +1,6 @@
+              
+1. RxJs:-RxJS (Reactive Extensions for JavaScript) is a library for reactive programming using observables that makes it easier to compose asynchronous or callback-based code.Rxjs provides us single api to deal with the data that are coming from multiple sources over time. The data that is continiously coming to your application is often called as data stream.
+
+2. Asynchronous Programming:- Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished. Once that task has finished, your program is presented with the result.
+
+3. Reactive Programming:- Reactive programming is a design approach that uses asynchronous programming logic to handle real-time adjustments to typically static information. It provides an efficient mechanism — the use of automated data streams — for handling content modifications in response to user inquiries.
