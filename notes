@@ -50,5 +50,7 @@ Observer - Calls the subscribe method of observable with an object as parameter/
 Whenever an Observable wants to send a data, it calls the next() method that is provided by observer.
 when an error occurs, it calls the error() method.
 Finally , the observable calls the complete() method when it is done sending the values.
+
+Observable can send multiple data over a span of time unlike functions .
                       
                       
